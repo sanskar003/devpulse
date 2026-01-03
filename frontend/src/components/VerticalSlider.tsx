@@ -56,7 +56,7 @@ export default function VerticalSlider({ mode, setMode }: VerticalSliderProps) {
   /* MOBILE DEFAULT — bottom bar */
   fixed bottom-4 left-1/2 -translate-x-1/2
   flex flex-row gap-3
-  bg-gradient-to-b from-emerald-700/40 via-emerald-800/30 to-emerald-900/40
+  bg-linear-to-b from-emerald-700/40 via-emerald-800/30 to-emerald-900/40
   backdrop-blur-xl
   shadow-xl shadow-black/20 rounded-2xl
   px-3 py-2
