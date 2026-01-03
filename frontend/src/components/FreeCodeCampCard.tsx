@@ -13,7 +13,7 @@ export default function FreeCodeCampCard() {
 
   if (loading) return <LoadingSkeletonCard />;
   if (error) {
-  console.error("Apollo error:", error);
+  // console.error("Apollo error:", error);
   return (
     <DisplayError/>
   );

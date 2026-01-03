@@ -28,7 +28,6 @@ export default function TopNewsCard() {
   if (loading && articles.length === 0) return <LoadingSkeletonCard />;
   if (error) return <DisplayError/>;
 
-  console.log("TopNews pageInfo:", data?.topNews.pageInfo);
 
   return (
     <div className="h-screen flex justify-center items-center px-1 sm:px-6 py-10">

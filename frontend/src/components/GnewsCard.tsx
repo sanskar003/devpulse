@@ -33,7 +33,7 @@ export default function GnewsCard({
   }
 
   if (error) {
-    console.log("GNews error:", error);
+    // console.log("GNews error:", error);
     return <DisplayError />;
   }
 
