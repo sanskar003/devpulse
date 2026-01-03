@@ -23,10 +23,10 @@ export default startServerAndCreateNextHandler(server, {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
 
-    if (req.method === "OPTIONS") {
-      res.status(200).end();
-      return {};
-    }
+    // if (req.method === "OPTIONS") {
+    //   res.status(200).end();
+    //   return {};
+    // }
 
     console.log("🟢 GraphQL request processed");
     return {};
