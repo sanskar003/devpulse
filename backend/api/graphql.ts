@@ -4,6 +4,8 @@ import { resolvers } from "../src/schema/resolvers";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import * as dotenv from "dotenv"
 
+console.log("🚀 GraphQL function loaded by Vercel");
+
 dotenv.config()
 
 const server = new ApolloServer({
@@ -23,6 +25,7 @@ export default startServerAndCreateNextHandler(server, {
       res.status(200).end();
       return {};
     }
+     console.log("🟢 GraphQL request processed");
 
     return {};
 
