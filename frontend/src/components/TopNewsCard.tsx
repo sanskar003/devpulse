@@ -6,7 +6,7 @@ import type { TopNewsConnection } from "../types/TopNews";
 import DisplayError from "./DisplayError";
 
 export default function TopNewsCard() {
-  const { data, loading, error, fetchMore } = useQuery<{ topNews: TopNewsConnection }>(
+  const { data, loading, error,  } = useQuery<{ topNews: TopNewsConnection }>(
     GET_TOPNEWS,
     {
       variables: { category: "technology", language: "en", page: 1 },

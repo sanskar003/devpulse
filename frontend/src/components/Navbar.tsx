@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const navRef = useRef<HTMLDivElement | null>(null);
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [, setIsDark] = useState(false);
 
   //links
   const rigtNavLink = [

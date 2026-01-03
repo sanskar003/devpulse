@@ -1,4 +1,3 @@
-import NewsSearchBar from "../components/NewsSearchBar"
 import TopNewsCard from "../components/TopNewsCard"
 
 export const TopNewsPage = () => {
