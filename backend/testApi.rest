@@ -1,0 +1,4 @@
+### Get top DEV.to posts from last 7 days
+GET https://dev.to/api/articles?state=fres&per_page=10
+Accept: application//vnd.forem.api-v1+json
+
