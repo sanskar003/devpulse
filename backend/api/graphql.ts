@@ -22,10 +22,10 @@ export default async function handler(
   );
 
   // ---- Preflight ----
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
+  // if (req.method === "OPTIONS") {
+  //   res.status(200).end();
+  //   return;
+  // }
 
   // ---- Start Apollo once ----
   if (!serverStarted) {
