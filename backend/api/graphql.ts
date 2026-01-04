@@ -11,11 +11,11 @@ export default async function handler(req: any, res: any) {
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
-  // ---- Preflight ----
-  if (req.method === "OPTIONS") {
-    res.status(200).end();
-    return;
-  }
+  // // ---- Preflight ----
+  // if (req.method === "OPTIONS") {
+  //   res.status(200).end();
+  //   return;
+  // }
 
   // ---- Start Apollo once ----
   if (!started) {
