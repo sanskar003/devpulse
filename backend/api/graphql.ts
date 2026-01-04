@@ -1,34 +1,54 @@
 import { ApolloServer } from "@apollo/server";
 import { typeDefs } from "../src/schema/typeDefs";
 import { resolvers } from "../src/schema/resolvers";
-import { startServerAndCreateNextHandler } from "@as-integrations/next";
-import * as dotenv from "dotenv";
-
-console.log("🚀 GraphQL function loaded by Vercel");
-
-dotenv.config();
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
 
-export default startServerAndCreateNextHandler(server, {
-  context: async (req: any) => {
-    // Vercel attaches res to the request object at runtime
-    const res = (req as any).res;
+let serverStarted = false;
 
-    // CORS headers
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+export default async function handler(
+  req: any,
+  res: any
+) {
+  // ---- CORS ----
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization"
+  );
 
-    // if (req.method === "OPTIONS") {
-    //   res.status(200).end();
-    //   return {};
-    // }
+  // ---- Preflight ----
+  if (req.method === "OPTIONS") {
+    res.status(200).end();
+    return;
+  }
 
-    console.log("🟢 GraphQL request processed");
-    return {};
-  },
-});
+  // ---- Start Apollo once ----
+  if (!serverStarted) {
+    await server.start();
+    serverStarted = true;
+  }
+
+  // ---- Handle request ----
+  const response = await server.executeHTTPGraphQLRequest({
+    httpGraphQLRequest: {
+      method: req.method!,
+      headers: req.headers as any,
+      search: req.url?.split("?")[1] ?? "",
+      body: req.body,
+    },
+    context: async () => ({}),
+  });
+
+  res.status(response.status || 200);
+
+  response.headers.forEach((value, key) => {
+    res.setHeader(key, value);
+  });
+
+  res.send(response.body);
+}
