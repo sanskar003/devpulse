@@ -1,1 +1,1 @@
-export const GRAPHQL_URI = import.meta.env.NEXT_PUBLIC_GRAPHQL_URI || "http://localhost:5000/graphql";
+export const GRAPHQL_URI = import.meta.env.VITE_GRAPHQL_URI || "http://localhost:5000/graphql";
