@@ -15,7 +15,7 @@ async function startServer() {
 
   // Start Apollo server
   const { url } = await startStandaloneServer(server, {
-    listen: { port: 5000 },
+  listen: { port: Number(process.env.PORT) || 5000 },
   });
 
   console.log(`🚀 Server ready at: ${url}`);
