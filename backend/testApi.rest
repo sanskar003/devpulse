@@ -1,4 +1,28 @@
 ### Get top DEV.to posts from last 7 days
-GET https://dev.to/api/articles?state=fres&per_page=10
-Accept: application//vnd.forem.api-v1+json
+# GET https://dev.to/api/articles?state=fres&per_page=10
+# Accept: application//vnd.forem.api-v1+json
 
+POST https://your-service-name.up.railway.app/graphql
+Content-Type: application/json
+
+{
+  "query": "{
+    gnews(first: 2) {
+      edges {
+        cursor
+        node {
+          title
+          url
+          source
+          publishedAt
+          description
+          image
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }"
+}
