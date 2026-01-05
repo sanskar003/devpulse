@@ -18,7 +18,7 @@ const Navbar: React.FC = () => {
   ];
 
   const leftNavLink = [
-    { label: "topNews", to: "/topnews" },
+    // { label: "topNews", to: "/topnews" },
     { label: "gNews", to: "/gnews" },
     { label: "home", to: "/" },
   ];

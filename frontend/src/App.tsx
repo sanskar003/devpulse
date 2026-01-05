@@ -5,8 +5,9 @@ import FreeCodeCampPage from "./pages/FreeCodeCampPage";
 import AboutPage from "./pages/AboutPage";
 import GnewsPage from "./pages/GnewsPage";
 import { GithubBlogPage } from "./pages/GithubBlogPage";
-import { TopNewsPage } from "./pages/TopNewsPage";
+// import { TopNewsPage } from "./pages/TopNewsPage";
 import DevTOPage from "./pages/DevToPage";
+import NotFound from "./components/NotFound";
 
 const App = () => {
 
@@ -19,8 +20,9 @@ const App = () => {
         <Route path="/freecodecamp" element={<FreeCodeCampPage />} />
         <Route path="/gnews" element={<GnewsPage />} />
         <Route path="/githubblog" element={<GithubBlogPage />} />
-        <Route path="/topnews" element={<TopNewsPage />} />
+        {/* <Route path="/topnews" element={<TopNewsPage />} /> */}
         <Route path="/devto" element={<DevTOPage />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
